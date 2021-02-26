@@ -1,0 +1,22 @@
+{{/*
+    Komenda pozwala wysłać wiadomość pytającą o wiek
+
+    Polecany typ trigera: Regex
+    Trigger: \A(-|<@!?204255221017214977>\s*)(verifymessage|vm)(\s*|\z)
+
+    Uwaga zalecane jest użyć opcji "Require at least of the roles in the following list" aby komenda działała gdy użyje jej administrator.  
+*/}}
+
+{{/* START SETUP EMBED */}}
+{{$title := "Witaj na serwerze!"}}
+{{$description := "Czy masz ukończone 13 lat?"}}
+{{$img := "Link do miniaturki tutaj"}}
+{{/*KONIEC SETUP EMBED*/}}
+
+{{$embed := cembed 
+    "title" $title
+    "description" $description
+    "color" 0
+    "thumbnail" sdict("url" $img)
+}}
+{{sendMessage nil $embed}}
